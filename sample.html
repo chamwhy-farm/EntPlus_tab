@@ -1,0 +1,29 @@
+<div ng-repeat="project in userPicks track by $index" project="project" class="staffProjectContainer">
+  <div class="projectThumbnailBox"
+    click="location.href=/${project._id}"
+    style="background:url('${projectImg}')">
+    <div class="imgGradation">
+      <div class="projectInfoContainer">
+        <span class="projectInfoViews ng-binding">${view}</span>
+        <span class="projectInfoLikes ng-binding">${like}</span>
+        <span class="projectInfoComments ng-binding">${comment}</span>
+      </div>
+      <a href="/ws/${project._id}?type=workspace">
+        <div class="projectCodeButton ko">
+          <span class="codeButtonText ko">코드보기</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="projectInfoBox">
+    <img class="projectUserThumb" src="${userImg}">
+    <div class="projectInfoDetail">
+      <div class="projectInfoName entryEllipsis ng-binding">
+        ${projectName}
+      </div>
+      <div class="projectInfoOwner entryEllipsis">
+        from <span class="projectInfoNameHigh" href="/${username}">${username}</span>
+      </div>
+    </div>
+  </div>
+</div>

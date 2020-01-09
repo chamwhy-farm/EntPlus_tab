@@ -1,0 +1,26 @@
+{
+  "name": "EntPlus",
+  "version": "1.0",
+  "description": "엔트리 css적용",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "https://playentry.org/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "img/icon3.png",
+    "default_title": "EntPlus",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "64": "img/icon3.png"
+  }
+}

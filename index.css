@@ -1,0 +1,55 @@
+.baseWrapper.indexPanel{
+  height: 669px;
+  background-color: #FFCD28;
+
+}
+.ent-noticeentContainer{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: auto;
+  max-width: 1024px;
+}
+.entContainerBox{
+  background-color: white;
+  border-radius: 10px;
+  border-bottom: 2px solid gray;
+  margin: 20px;
+  width: 500px;
+  height: 100px;
+
+
+
+}
+.indexDivider{
+
+  margin-top: 200px;
+}
+.indexDivider.diverBottom{
+  top: 1005px;
+  margin: 0px;
+}
+.ent-userImg{
+  width: 60px;
+  border-radius: 30px;
+}
+.ent-text{
+  padding-left: 8px;
+  padding-top: 0px;
+  width: 300px;
+  flex-grow: 1;
+  float: left;
+}
+.ent-containerSmallBox{
+  flex-wrap: nowrap;
+  align-items: center;
+  display: flex;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 3px;
+}
+.ent-when{
+  color: #969696;
+  font-size: 12px;
+  float: right;
+  padding-right: 10px;
+}

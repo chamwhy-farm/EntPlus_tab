@@ -1,0 +1,28 @@
+.psListTopUser{
+
+}
+.addFollowingBtn{
+  text-align: center;
+  vertical-align: middle;
+  width: 150px;
+  height: 39px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #FFCD28;
+  border-radius: 5px;
+  color: white;
+}
+.unFollowingBtn{
+  text-align: center;
+  vertical-align: middle;
+  width: 150px;
+  height: 39px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #8c8c8c;
+  border-radius: 5px;
+  color: white;
+}
+.ent-text{
+  padding-top: 9px;
+}

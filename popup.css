@@ -1,0 +1,77 @@
+.title{
+  width: 100%;
+  color: white;
+  background-color: black;
+  position: fixed;
+  padding: 20px;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+.main{
+  padding-top: 70px;
+}
+.searchUser{
+  border-bottom: 1px solid gainsboro;
+}
+.titleH{
+  margin: 0px;
+}
+ul{
+  list-style: none;
+  padding: 0px;
+}
+li{
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.ent-userImg{
+  width: 60px;
+  border-radius: 30px;
+
+}
+.entUsername{
+  cursor: pointer;
+}
+.following{
+  display: flex;
+  align-content: center;
+
+}
+.followLi{
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.entUsername{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  flex-grow: 1;
+}
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: black; text-decoration: none;}
+button{
+  background-color: #c8c8c8;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+  margin: 4px;
+}
+.resetBtn{
+  float: right;
+  background-color: red;
+}
+.addFollowing, .delFollowing{
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
