@@ -11,6 +11,7 @@
   background-color: #FFCD28;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
 }
 .unFollowingBtn{
   text-align: center;
@@ -22,6 +23,7 @@
   background-color: #8c8c8c;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
 }
 .ent-text{
   padding-top: 9px;
