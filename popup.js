@@ -1,4 +1,4 @@
-var bestUsers = ['chamwhy', 'dark', 'thoratica', 'lyh2315'];
+var bestUsers = ['chamwhy', 'dark', 'thoratica', 'lyh2315', 'y711825'];
 function form(username, type, btn){
   return getUserByUsername(username).then(function(data){
     var imgSrc = getUserImgLinkByUser(data);
@@ -27,6 +27,7 @@ function reset(){
   $('.followings').html("");
   chrome.storage.sync.get("entUser", function(result){
     console.log(result);
+    $('.count').text("팔로잉  "+result.entUser.length);
     for (var i = 0; i < result.entUser.length; i++) {
       console.log(result.entUser.length);
       form(result.entUser[i], "del", "×").then(function(data){
