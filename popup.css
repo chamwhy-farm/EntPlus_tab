@@ -32,9 +32,7 @@ li{
   border-radius: 30px;
 
 }
-.entUsername{
-  cursor: pointer;
-}
+
 .following{
   display: flex;
   align-content: center;
@@ -44,7 +42,8 @@ li{
   border-bottom: 1px solid #dcdcdc;
 }
 
-.entUsername{
+.entUsername, .bestEntUsername{
+  cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   margin-top: auto;
@@ -69,7 +68,7 @@ button{
   float: right;
   background-color: red;
 }
-.addFollowing, .delFollowing{
+.addFollowing, .delFollowing, .bestFollowing{
   width: 40px;
   height: 40px;
   margin-top: auto;
