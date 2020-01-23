@@ -3,8 +3,10 @@ window.onload = function(){
   let urlr = window.location.href;
   let urle =urlr.substring(22,urlr.length);
   let username = urle.substring(0,urle.indexOf("#!/"));
+  
   getUserByUsername(username).then(function(data){
     if( data != "none"){
+
       var button = `
       <div class="addFollowingBtn" style="top: 30px;"><div class="ent-text">Follow</div></div>
       <div class="unFollowingBtn" style="top: 30px;"><div class="ent-text">Unfollow</div></div>`;

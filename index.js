@@ -79,7 +79,7 @@ entModule.notice = function(username, userId, type, data, when){
 
 }
 
-window.onload= function(){
+$(document).ready(function(){
   // console.log("kkkkkk");
   // get('https://playentry.org/api/rankProject?type=best&limit=9').then(function(data){
   //   console.log(data);
@@ -132,7 +132,7 @@ window.onload= function(){
     }
   });
 
-}
+});
 
 
 

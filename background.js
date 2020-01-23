@@ -1,10 +1,19 @@
 var bkg = chrome.extension.getBackgroundPage();
-chrome.tabs.onUpdated.addListener(function(data){
-  test();
-});
+// chrome.tabs.onUpdated.addListener(function(data){
+//   test();
+// });
+//
+// chrome.tabs.onActivated.addListener(function(data){
+//   test();
+// });
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+  if (changeInfo.status == 'complete' && tab.active) {
+    console.log("555");
+    test();
+    // do your things
 
-chrome.tabs.onActivated.addListener(function(data){
-  test();
+  }
+
 });
 
 // function index(){
@@ -62,6 +71,9 @@ function test(){
               bkg.console.log("d3333");
               chrome.tabs.executeScript({file:"jquery.js"}, function(){
                 chrome.tabs.executeScript({file:"ent.js"}, function(){
+                  chrome.tabs.executeScript({file:"projectLank.js"}, function(){
+                    chrome.tabs.insertCSS({file:"projectLank.css", runAt: "document_end"});
+                  });
                   chrome.tabs.executeScript({file:"user.js"}, function(){
                     chrome.tabs.insertCSS({file : "user.css", runAt: "document_end"}, function(){
                       bkg.console.log("it is usercss");
