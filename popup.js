@@ -96,6 +96,13 @@ $(document).ready(function(){
     }
 
   });
+  /*$('.jevi').click(function(){
+    chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
+    var activeTab = tabs[0];
+    chrome.tabs.sendMessage(activeTab.id, {"message": "jevi"});
+   });
+
+ });*/
   $('.searchBtn').click(function(){
     var val = $('.userSearch').val();
     if(val != ""){

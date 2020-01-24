@@ -8,6 +8,7 @@
   top: 0px;
   left: 0px;
   right: 0px;
+  display: flex;
 }
 .main{
   padding-top: 70px;
@@ -17,6 +18,7 @@
 }
 .titleH{
   margin: 0px;
+  margin-right: auto;
 }
 ul{
   list-style: none;
@@ -41,6 +43,24 @@ li{
 .followLi{
   border-bottom: 1px solid #dcdcdc;
 }
+/* .jevi{
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+  border-bottom: 2px solid gray;
+  text-align: center;
+  background-color: #1f91f3;
+  float: right;
+  margin-right: 40px;
+}
+.jevi span{
+  padding-top: 4px;
+} */
 
 
 .entUsername, .bestEntUsername{

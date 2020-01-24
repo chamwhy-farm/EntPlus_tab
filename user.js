@@ -1,9 +1,9 @@
-window.onload = function(){
+$(document).ready(function(){
 
   let urlr = window.location.href;
   let urle =urlr.substring(22,urlr.length);
   let username = urle.substring(0,urle.indexOf("#!/"));
-  
+  console.log("user.js is start");
   getUserByUsername(username).then(function(data){
     if( data != "none"){
 
@@ -55,3 +55,4 @@ window.onload = function(){
     }
   });
 }
+);
