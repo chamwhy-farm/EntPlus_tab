@@ -71,6 +71,7 @@ function test(){
               bkg.console.log("d3333");
               chrome.tabs.executeScript({file:"jquery.js"}, function(){
                 chrome.tabs.executeScript({file:"ent.js"}, function(){
+                  chrome.tabs.executeScript({file:"like.js"});
                   chrome.tabs.executeScript({file:"projectLank.js"}, function(){
                     chrome.tabs.insertCSS({file:"projectLank.css", runAt: "document_end"});
                   });
