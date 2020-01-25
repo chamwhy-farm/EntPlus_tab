@@ -1,4 +1,4 @@
-var bestUsers = ['chamwhy', 'dark', 'thoratica', 'lyh2315', 'y711825', 'ddtt786'];
+var bestUsers = ['chamwhy', 'dark', 'thoratica', 'lyh2315', 'y711825', 'atom10150', 'ddtt786'];
 function form(username, type, btn){
   return getUserByUsername(username).then(function(data){
     var imgSrc = getUserImgLinkByUser(data);
