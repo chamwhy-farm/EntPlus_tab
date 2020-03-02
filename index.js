@@ -15,7 +15,13 @@ skills.numUnit = function(count){
   return countNum;
 }  //숫자단위 변환 코드
 skills.textToDate = function(text){
-  return `${text.substring(0,4)}-${text.substring(4,6)}-${text.substring(6,8)} ${text.substring(8,10)}:${text.substring(10,12)}`;
+  if(text.substring(8,10)>12){
+    var t = (text.substring(8,10)-12).length == 2 ? "" : "0";
+    return `${text.substring(0,4)}-${text.substring(4,6)}-${text.substring(6,8)} ${t}${text.substring(8,10)-12}:${text.substring(10,12)} pm`;
+  }else{
+    return `${text.substring(0,4)}-${text.substring(4,6)}-${text.substring(6,8)} ${text.substring(8,10)}:${text.substring(10,12)} am`;
+  }
+
 }
 skills.textForm = function(text){
   if(text.length>40){
@@ -80,6 +86,7 @@ entModule.notice = function(username, userId, type, data, when){
 }
 
 $(document).ready(function(){
+  console.log("entplus is start!!!!");
   // console.log("kkkkkk");
   // get('https://playentry.org/api/rankProject?type=best&limit=9').then(function(data){
   //   console.log(data);
@@ -111,9 +118,10 @@ $(document).ready(function(){
 
 
       var username = item.entUser[i];
-      console.log(item.entUser.length);
-      resetByUsername(username, i==item.entUser.length-1).then(function(e){
+      resetByUsername(username, i==(item.entUser.length-1)).then(function(e){
+
         if(e==item.entUser[item.entUser.length-1]){
+          console.log(`${username} : is last!!!!!`);
           for (var ae = 0; ae < notice.length; ae++) {
             if(ae > 4){
               break;
@@ -131,7 +139,7 @@ $(document).ready(function(){
       });
     }
   });
-
+  
 });
 
 
@@ -147,26 +155,31 @@ function entReadTime(time){
 
 function resetByUsername(username, last){
   console.log("llll");
-  return getProjectsByUsername(username).then(function(projects){
-    console.log(projects);
-      for (var i = 0; i < projects.data.length; i++) {  //작품 긁어오기
-        if(i<150){  //작품 한계 : 150개
-          var count = 0;
-          var update = entReadTime(projects.data[i].updated);
-          var content = {
-            type:"shareProject",
-            username:username,
-            data:projects.data[i],
-            when:update
-          };
-          notice.splice(count,0,content);
-          console.log("done");
+  return new Promise((resolve, reject) => {
+    getProjectsByUsername(username).then(function(projects){
+      console.log(projects);
+        for (var i = 0; i < projects.data.length; i++) {  //작품 긁어오기
+          if(i<150){  //작품 한계 : 150개
+            var count = 0;
+            var update = entReadTime(projects.data[i].updated);
+            var content = {
+              type:"shareProject",
+              username:username,
+              data:projects.data[i],
+              when:update
+            };
+            notice.splice(count,0,content);
+            console.log(username + " done");
+          }
         }
-      }
-      if(last){
-        setNotice();
-      }
-      return username;
+        if(last){
+          console.log("it is last!!");
+          setNotice();
+          console.log(notice);
+        }
+
+        resolve(username);
+    });
   });
 
 

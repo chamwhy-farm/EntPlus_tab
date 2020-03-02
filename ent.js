@@ -46,3 +46,6 @@ function getFavoriteProjectByUsername(username){
     return data;
   });
 }
+function getUpdateProjects(){
+  return get(``);
+}
