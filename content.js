@@ -5,7 +5,7 @@ var cssAll = ["projectLank.css", "user.css"];
 
 var i = 0;
 
-window.addEventListener("load", init());
+window.addEventListener("load", () => {init();});
 function init(){
   if(window.location.href.startsWith("https://playentry.org/#!/")){
     if(i >= pathHome.length+cssHome.length){
@@ -13,21 +13,21 @@ function init(){
     }
     if(i >= pathHome.length){
       var url = cssHome[i-pathHome.length];
-      injectScript(chrome.extension.getURL(), "body", true).addEventListener("load", init());
+      injectScript(chrome.extension.getURL(url), "body", true).addEventListener("load", init());
     }else{
       var url = pathHome[i];
-      injectScript(chrome.extension.getURL(), "body", false).addEventListener("load", init());
+      injectScript(chrome.extension.getURL(url), "body", false).addEventListener("load", init());
     }
-  }else if(window.location.href.startsWith("https://playentry.org/"){
+  }else if(window.location.href.startsWith("https://playentry.org/")){
     if(i >= pathAll.length+cssAll.length){
       return;
     }
     if(i >= pathAll.length){
       var url = cssAll[i-pathAll.length];
-      injectScript(chrome.extension.getURL(), "body", true).addEventListener("load", init());
+      injectScript(chrome.extension.getURL(url), "body", true).addEventListener("load", init());
     }else{
       var url = pathAll[i];
-      injectScript(chrome.extension.getURL(), "body", false).addEventListener("load", init());
+      injectScript(chrome.extension.getURL(url), "body", false).addEventListener("load", init());
     }
   }
 }

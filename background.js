@@ -40,6 +40,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
 //       });
 //   });
 // }
+chrome.browserAction.onClicked.addListener(function (tab) {
+
+});
 function test(){
   chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function(tabs){
     bkg.console.log("dd");
@@ -55,36 +58,43 @@ function test(){
           if(result.enabled) {
             bkg.console.log(url);
             if(url.startsWith("https://playentry.org/#!/")) {
-              bkg.console.log("dd3");
-              chrome.tabs.executeScript({file: "jquery.js"}, function(){
-                bkg.console.log("dd3");
-                chrome.tabs.executeScript({file: "ent.js"}, function(){
-                  chrome.tabs.executeScript({file: "index.js"}, function(){
-                    bkg.console.log("d3333");
-                    chrome.tabs.insertCSS({file : "index.css", runAt: "document_end"});
-                  });
-                });
+              executeScripts(null, [
+                  { file: "jquery.js" },
+                  { file: "ent.js" },
+                  { file: "index.js" }
+              ]);
+              chrome.tabs.insertCSS({file : "index.css", runAt: "document_end"});
 
-              });
 
             }else if(url.startsWith("https://playentry.org/")){
-              bkg.console.log("d3333");
-              chrome.tabs.executeScript({file:"jquery.js"}, function(){
-                chrome.tabs.executeScript({file:"ent.js"}, function(){
-                  chrome.tabs.executeScript({file:"like.js"});
-                  chrome.tabs.executeScript({file:"projectLank.js"}, function(){
-                    chrome.tabs.insertCSS({file:"projectLank.css", runAt: "document_end"});
-                  });
-                  chrome.tabs.executeScript({file:"user.js"}, function(){
-                    chrome.tabs.insertCSS({file : "user.css", runAt: "document_end"}, function(){
-                      bkg.console.log("it is usercss");
-                    });
-                  });
-                });
+              executeScripts(null, [
+                  { file: "jquery.js" },
+                  { file: "ent.js" },
+                  { file: "like.js" },
+                  { file: "projectLank.js" },
+                  { file: "user.js" }
+              ]);
+              chrome.tabs.insertCSS({file:"projectLank.css", runAt: "document_end"});
+              chrome.tabs.insertCSS({file : "user.css", runAt: "document_end"}, function(){
+                bkg.console.log("it is usercss");
               });
             }
           }
         });
     });
 
+}
+
+function executeScripts(tabId, injectDetailsArray)
+{
+    function createCallback(tabId, injectDetails, innerCallback) {
+        return function () {
+            chrome.tabs.executeScript(tabId, injectDetails, innerCallback);
+        };
+    }
+    var callback = null;
+    for (var i = injectDetailsArray.length - 1; i >= 0; --i)
+        callback = createCallback(tabId, injectDetailsArray[i], callback);
+    if (callback !== null)
+        callback();   // execute outermost function
 }
