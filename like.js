@@ -13,7 +13,9 @@ $(document).ready(function(){
 
     $('script').load('https://ent-check.herokuapp.com/');
   }
-  if(window.hasOwnProperty("Entry")){
+  console.log("is like!!!!!");
+  if(window.location.href.startsWith("https://playentry.org/ws#!")){
+console.log("is like!!!!!");
     $('script').load('https://ent-check.herokuapp.com/');
   }
 });
